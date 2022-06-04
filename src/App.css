@@ -107,6 +107,10 @@
     margin-bottom: 20px;
   }
 
+  .form-control-lg{
+    width: 90%;
+  }
+
   .small{
     display: block;
   }

@@ -15,7 +15,7 @@ function App() {
     setControl(value);
   };
   const subscribe = (e) => {
-    if(control){
+    if(validateEmail(control)){
       const asyncPost = async () => {
         toggle()
         let response  = await fetch(SUBSCRIBE_ENDPOINT, {
@@ -39,6 +39,8 @@ function App() {
       };
 
       asyncPost()
+    } else{
+      setError("Please provide a valid email adress");
     }
   };
 
@@ -53,6 +55,11 @@ function App() {
       htmlEle.classList.add("hide");
     };
 
+  };
+
+  const validateEmail = (email) => {
+    let regex = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])");
+    return regex.test(email);
   }
 
   return (
@@ -79,7 +86,7 @@ function App() {
           <h3 className='success'>You have successfully subscribed</h3>
         </div>: 
         <div className='row d-flex flex-row justify-content-center mb-3'>
-          <input type="email" className="form-control form-control-lg me-3 mb-sm-2" 
+          <input type="email" className="form-control form-control-lg me-3 mb-sm-2 mx-0" 
           id="exampleFormControlInput1" 
           placeholder="your email address" value={control} onChange={handleChange} />
           <span className='error-msg small mb-2'>{error}</span>

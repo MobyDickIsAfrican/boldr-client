@@ -85,12 +85,14 @@ function App() {
         {success? <div className='row d-flex flex-row justify-content-center mb-3'>
           <h3 className='success'>You have successfully subscribed</h3>
         </div>: 
-        <div className='row d-flex flex-row justify-content-center mb-3'>
-          <input type="email" className="form-control form-control-lg me-3 mb-sm-2 mx-0" 
+        <div className='row d-flex flex-row justify-content-center mb-3 align-items-center
+        input-container pb-0'>
+          <input type="email" className="mx-0 pb-0 pt-0
+          mb-0 form-control form-control-lg me-3 mb-sm-2 " 
           id="exampleFormControlInput1" 
           placeholder="your email address" value={control} onChange={handleChange} />
-          <span className='error-msg small mb-2'>{error}</span>
-          <button type="button" className="btn btn-primary" onClick={subscribe}>Subscribe</button>
+          <span className='error-msg small mb-2 mt-2'>{error}</span>
+          <button type="button" className="btn btn-primary mb-2 mt-0" onClick={subscribe}>Subscribe</button>
         </div>}
         <span className='error-msg large mb-2'>{error}</span>
         <div className='row footer'>

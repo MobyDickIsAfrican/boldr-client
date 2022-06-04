@@ -30,14 +30,18 @@
   color: #696969;
 }
 
+.input-container{
+}
 .form-control{
   width: auto;
+  height: auto;
   border-style: none;
   border-radius: 10px;
 }
 
 .btn{
   width: auto;
+  height: fit-content;
   color: white;
   background-color: #1ca9c9;
   border-style: none;
